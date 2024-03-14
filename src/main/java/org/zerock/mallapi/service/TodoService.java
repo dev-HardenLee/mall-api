@@ -1,11 +1,21 @@
 package org.zerock.mallapi.service;
 
 import org.zerock.mallapi.domain.Todo;
+import org.zerock.mallapi.dto.PageRequestDTO;
+import org.zerock.mallapi.dto.PageResponseDTO;
 import org.zerock.mallapi.dto.TodoDTO;
 
 public interface TodoService {
 
     TodoDTO get(Long tno);
+
+    Long register(TodoDTO todoDTO);
+
+    void modify(TodoDTO todoDTO);
+
+    void remove(Long tno);
+
+    PageResponseDTO<TodoDTO> getList(PageRequestDTO pageRequestDTO);
 
     default TodoDTO entityToDTO(Todo todo) {
         return TodoDTO.builder()
@@ -17,8 +27,8 @@ public interface TodoService {
                         .build();
     }// entityToDTO
 
-    default TodoDTO dtoToEntity(TodoDTO todoDTO) {
-        return TodoDTO.builder()
+    default Todo dtoToEntity(TodoDTO todoDTO) {
+        return Todo.builder()
                 .tno(todoDTO.getTno())
                 .title(todoDTO.getTitle())
                 .content(todoDTO.getContent())

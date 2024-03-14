@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.zerock.mallapi.domain.Todo;
+import org.zerock.mallapi.dto.PageRequestDTO;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -77,11 +78,6 @@ class TodoRepositoryTest {
         log.info(result.getTotalElements());
         log.info(result.getContent());
     }// testPaging
-
-    @Test
-    void testSearch1() {
-        todoRepository.search1();
-    }// testSearch1
 
 }
 
