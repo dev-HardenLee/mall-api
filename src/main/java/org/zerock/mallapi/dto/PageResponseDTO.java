@@ -25,6 +25,7 @@ public class PageResponseDTO<E> {
         this.dtoList = dtoList;
         this.pageRequestDTO = pageRequestDTO;
         this.totalCount = (int) total;
+        this.currentPage = pageRequestDTO.getPage();
 
         int end = (int) (Math.ceil(pageRequestDTO.getPage() / 10.0)) * 10;
         int start = end - 9;
