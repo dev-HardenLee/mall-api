@@ -19,6 +19,8 @@ public interface ProductService {
 
     void modify(ProductDTO productDTO);
 
+    void remove(Long id);
+
     default Product dtoToEntity(ProductDTO productDTO) {
         Product product = Product.builder()
                 .pno(productDTO.getPno())

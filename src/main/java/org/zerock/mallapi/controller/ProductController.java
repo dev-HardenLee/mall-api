@@ -87,5 +87,16 @@ public class ProductController {
         return Map.of("result", "success");
     }// modify
 
+    @DeleteMapping("/{pno}")
+    public Map<String, String> remove(@PathVariable Long pno) {
+        List<String> oldFileNames = productService.get(pno).getUploadFileNames();
+
+        productService.remove(pno);
+
+        customFileUtil.deleteFiles(oldFileNames);
+
+        return Map.of("result", "success");
+    }// remove
+
 
 }// ProductController
