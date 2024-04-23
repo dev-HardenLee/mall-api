@@ -14,6 +14,8 @@ public class CustomControllerAdvice {
 
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<?> notExist(NoSuchElementException e) {
+        e.printStackTrace();
+
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("msg", e.getMessage()));
     }// notExist
 
@@ -23,5 +25,12 @@ public class CustomControllerAdvice {
 
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(Map.of("msg", e.getMessage()));
     }// notExist
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<?> exception(Exception e) {
+        e.printStackTrace();
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("msg", e.getMessage()));
+    }// exception
 
 }// CustomControllerAdvice

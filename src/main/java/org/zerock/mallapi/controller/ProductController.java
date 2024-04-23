@@ -38,6 +38,12 @@ public class ProductController {
 
         log.info(uploadedFileNames);
 
+        try {
+            Thread.sleep(2000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         Long pno = productService.register(productDTO);
 
         return Map.of("result", pno);
