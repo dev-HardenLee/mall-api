@@ -19,6 +19,8 @@ public class CustomControllerAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> notExist(MethodArgumentNotValidException e) {
+        e.printStackTrace();
+
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(Map.of("msg", e.getMessage()));
     }// notExist
 
